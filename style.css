@@ -1,0 +1,223 @@
+
+@import url("https://fonts.googleapis.com/css?family=Fira+Sans+Condensed:100,300,400,700,900");
+
+html {
+  font-size: 12px;
+  font-family: 'Fira Sans Condensed', sans-serif;
+}
+
+@media screen and (min-width: 600px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+body {
+  background: url('./image/tic-tac-toe-bg.png');
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #fff;
+  text-shadow: 0 1px 2px #000;
+}
+
+h2 {
+  font-size: 1.8rem;
+}
+
+h3 {
+  font-size: 1.6rem;
+}
+
+h4 {
+  font-size: 1.4rem;
+}
+
+h5 {
+  font-size: 1.2rem;
+}
+
+h6 {
+  font-size: 1.1rem;
+}
+
+p, a, ul, li, table, thead, tbody, tr, td, dl, dt, dd, button, label {
+  font-family: sans-serif;
+  font-size: 1rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  display: flex;
+  display: -webkit-flex;
+  flex-flow: column nowrap;
+  -webkit-flex-flow: column nowrap;
+  justify-content: flex-start;
+  -webkit-justify-content: flex-start;
+  flex: 1 1 100%;
+  -webkit-flex: 1 1 100%;
+  height: 100vh;
+}
+
+.row {
+  display: flex;
+  display: -webkit-flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  -webkit-justify-content: center;
+  align-items: center;
+  -webkit-align-items: center;
+  align-content: center;
+  -webkit-align-content: center;
+  flex: 1 1 100%;
+  -webkit-flex: 1 1 100%;
+  margin: auto;
+}
+
+.column {
+  display: flex;
+  display: -webkit-flex;
+  flex-flow: column nowrap;
+  -webkit-flex-flow: column nowrap;
+  justify-content: center;
+  -webkit-justify-content: center;
+  align-items: center;
+  -webkit-align-items: center;
+  flex: 0 0 95vw;
+  -webkit-flex: 0 0 95vw;
+}
+
+.board {
+  color: #fff;
+  background: radial-gradient(circle, #f44, #cc3636);
+  background: rgb(75, 3, 47);
+  display: flex;
+  display: -webkit-flex;
+  flex-flow: row nowrap;
+  -webkit-flex-flow: row nowrap;
+  justify-content: center;
+  -webkit-justify-content: center;
+  align-items: center;
+  -webkit-align-items: center;
+  padding: 20px;
+  border-radius: 10px;
+  border: solid 10px red;
+  margin: 1rem 0 2rem;
+  height: 20rem;
+  width: 20rem;
+  box-shadow: 0 1px 2px #000;
+}
+
+.modal {
+  display: flex;
+  display: -webkit-flex;
+  flex-flow: column nowrap;
+  -webkit-flex-flow: column nowrap;
+  justify-content: center;
+  -webkit-justify-content: center;
+  align-items: center;
+  -webkit-align-items: center;
+  flex: 0 0 100vh;
+  -webkit-flex: 0 0 100vh;
+  width: 100vw;
+}
+
+.modal p {
+  margin: 0 0 .5rem 0;
+  color: #fff;
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.modal a {
+  background: #fff;
+  color: #ff4444;
+  font-size: 1.3rem;
+  font-weight: 700;
+  padding: 0 1.25rem;
+  border-radius: 50%;
+}
+
+.grid {
+  display: flex;
+  display: -webkit-flex;
+  flex-flow: row wrap;
+  -webkit-flex-flow: row wrap;
+  justify-content: center;
+  -webkit-justify-content: center;
+  align-items: center;
+  -webkit-align-items: center;
+  align-content: center;
+  -webkit-align-content: center;
+}
+
+.square {
+  display: flex;
+  display: -webkit-flex;
+  flex-flow: row nowrap;
+  -webkit-flex-flow: row nowrap;
+  justify-content: center;
+  -webkit-justify-content: center;
+  align-items: center;
+  -webkit-align-items: center;
+  flex: 0 0 30%;
+  -webkit-flex: 0 0 30%;
+  height: 5rem;
+}
+
+.square:nth-child(3n-2) {
+  border-right: 3px solid #fff;
+}
+
+.square:nth-child(3n-1) {
+  border-right: 3px solid #fff;
+}
+
+.square:nth-child(-n + 6) {
+  border-bottom: 3px solid #fff;
+}
+
+.square a {
+  color: #fff;
+  width: 5rem;
+  height: 5rem;
+  font-size: 4rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.square a.disabled {
+  pointer-events: none;
+  cursor: default;
+}
+
+.hidden {
+  display: none;
+}
+
+#author, #author a {
+  color: #000;
+  width: 100%;
+  text-align: center;
+  margin-top: 0;
+  text-shadow: 0 1px 2px #000;
+}
+
+@media screen and (min-width: 600px) {
+  .column {
+    flex: 0 0 50vw;
+    -webkit-flex: 0 0 50vw;
+  }
+}
