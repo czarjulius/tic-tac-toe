@@ -15,40 +15,40 @@
           
           <div class="board">
             <div class="modal" id="startModal">
-              <p><a href="javascript: startGame('X', 'O');">X</a>'s or <a href="javascript: startGame('O', 'X');">O</a>'s?</p>
+              <p><a data-npc="O" data-user="X">X</a>'s or <a data-user="O" data-npc="X">O</a>'s?</p>
             </div>
             <div class="grid hidden" id="grid">
               <div class="square">
-                <a href="javascript: makeMove(0)" class="squareText" id="square0">&nbsp;</a>
+                <a class="squareText" data-id="0" id="square0">&nbsp;</a>
               </div>
               <div class="square">
-                <a href="javascript: makeMove(1)" class="squareText" id="square1">&nbsp;</a>
+                <a class="squareText" data-id="1" id="square1">&nbsp;</a>
               </div>
               <div class="square">
-                <a href="javascript: makeMove(2)" class="squareText" id="square2">&nbsp;</a>
+                <a class="squareText" data-id="2" id="square2">&nbsp;</a>
               </div>
               <div class="square">
-                <a href="javascript: makeMove(3)" class="squareText" id="square3">&nbsp;</a>
+                <a class="squareText" data-id="3" id="square3">&nbsp;</a>
               </div>
               <div class="square">
-                <a href="javascript: makeMove(4)" class="squareText" id="square4">&nbsp;</a>
+                <a  class="squareText" data-id="4" id="square4">&nbsp;</a>
               </div>
               <div class="square">
-                <a href="javascript: makeMove(5)" class="squareText" id="square5">&nbsp;</a>
+                <a class="squareText" data-id="5" id="square5">&nbsp;</a>
               </div>
               <div class="square">
-                <a href="javascript: makeMove(6)" class="squareText" id="square6">&nbsp;</a>
+                <a class="squareText" data-id="6" id="square6">&nbsp;</a>
               </div>
               <div class="square">
-                <a href="javascript: makeMove(7)" class="squareText" id="square7">&nbsp;</a>
+                <a class="squareText" data-id="7" id="square7">&nbsp;</a>
               </div>
               <div class="square">
-                <a href="javascript: makeMove(8)" class="squareText" id="square8">&nbsp;</a>
+                <a class="squareText" data-id="8" id="square8">&nbsp;</a>
               </div>
             </div>
             <div class="modal hidden" id="endModal">
               <p id="statusText">Player Wins!</p>
-              <a href="javascript: resetBoard();">New Game</a>
+              <a>New Game</a>
               
             </div>
           </div>
@@ -56,5 +56,6 @@
       </div>
     </div>
   </body>
+  <script  src="./minimax.js"></script>
   <script src="./main.js"></script>
 </html>
