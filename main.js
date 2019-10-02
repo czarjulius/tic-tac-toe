@@ -17,7 +17,8 @@ function drawSquare(idx, player) {
 
 // Reset board:
 // Clear game array, reset HTML elements
-// hide end modal and show start modal
+// hide end modal and show start 
+document.querySelector('#endModal a').addEventListener('click', resetBoard)
 function resetBoard() {
   GRID.classList.add("hidden");
   ENDMODAL.classList.add("hidden");
@@ -60,15 +61,18 @@ function checkBoard(board) {
 
 // Start a game:
 // Assign user and npc and hide start modal
-function startGame(user, npc) {
-  USER = user;
+document.querySelectorAll('#startModal a')
+.forEach(button => button.addEventListener('click', startGame));
+function startGame(event) {
+  var npc = event.target.dataset.npc;
+  USER = event.target.dataset.user;
   NPC = npc;
   STARTMODAL.classList.add("hidden");
   GRID.classList.remove("hidden");
   if (NPC == "X") {
     setTimeout(function() {
       npcFirstMove();
-    }, 200);
+    }, 100);
   }
 }
 
@@ -83,54 +87,6 @@ function score(board) {
   return score;
 }
 
-// MiniMax Algorithm
-function getBestMove(board, player) {
-  if (
-    checkBoard(board) ||
-    checkStatus(NPC, board) ||
-    checkStatus(USER, board)
-  ) {
-    return { score: score(board) };
-  }
-  var clone = board.slice(0),
-    moves = [],
-    active;
-  if (player == NPC) {
-    active = USER;
-  } else {
-    active = NPC;
-  }
-
-  for (var i = 0; i < board.length; i++) {
-    if (board[i] == " ") {
-      var move = { index: i, score: 0 },
-        next;
-      clone[i] = player;
-      next = getBestMove(clone, active);
-      move.score = next.score;
-      moves.push(move);
-      clone[i] = " ";
-    }
-  }
-
-  if (player == NPC) {
-    var best = moves[0];
-    for (var i = 0; i < moves.length; i++) {
-      if (moves[i].score > best.score) {
-        best = moves[i];
-      }
-    }
-  } else if (player == USER) {
-    var best = moves[0];
-    for (var i = 0; i < moves.length; i++) {
-      if (moves[i].score < best.score) {
-        best = moves[i];
-      }
-    }
-  }
-  return best;
-}
-
 // NPC moves
 function npcMove() {
   var moveObj = getBestMove(GAME, NPC),
@@ -142,13 +98,13 @@ function npcMove() {
     setTimeout(function() {
       GRID.classList.add("hidden");
       ENDMODAL.classList.remove("hidden");
-    }, 500);
+    }, 100);
   } else if (checkBoard(GAME)) {
     MESSAGE.innerHTML = "It's a Draw.";
     setTimeout(function() {
       GRID.classList.add("hidden");
       ENDMODAL.classList.remove("hidden");
-    }, 500);
+    }, 100);
   }
 }
 
@@ -159,8 +115,13 @@ function npcFirstMove() {
   drawSquare(idx, NPC);
 }
 
-// USER moves
-function makeMove(idx) {
+// USER movessuar
+
+var squareBoards = document.querySelectorAll('.squareText');
+squareBoards.forEach(square => square.addEventListener('click', makeMove));
+
+function makeMove(event) {
+  const idx = event.target.dataset.id;
   GAME[idx] = USER;
   drawSquare(idx, USER);
   if (checkStatus(USER, GAME)) {
@@ -168,16 +129,16 @@ function makeMove(idx) {
     setTimeout(function() {
       GRID.classList.add("hidden");
       ENDMODAL.classList.remove("hidden");
-    }, 500);
+    }, 100);
   } else if (checkBoard(GAME)) {
     MESSAGE.innerHTML = "It's a Draw.";
     setTimeout(function() {
       GRID.classList.add("hidden");
       ENDMODAL.classList.remove("hidden");
-    }, 500);
+    }, 100);
   } else {
     setTimeout(function() {
       npcMove();
-    }, 300);
+    }, 100);
   }
 }
